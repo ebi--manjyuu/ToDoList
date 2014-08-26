@@ -62,10 +62,13 @@ function saveText() {
 	// 時刻をキーにして入力されたテキストを保存する
 	var text = $("#formText");
 	var time = new Date();
+	var time2 = JSON.stringify(time);
+	console.log(time);
+	console.log(time2);
 	//入力チェック追加
 	if(checkText(text.val())) { 
 		var val = escapeText(text.val());
-			localStorage.setItem(time, val);
+			localStorage.setItem(time2, val);
 			// テキストボックスを空にする
 			text.val("");
 			$("#showStatus").text("追加しました");
@@ -82,13 +85,18 @@ function showText() {
   for(var i=0, len=localStorage.length; i<len; i++) {
 	key = localStorage.key(i);
 	value = localStorage.getItem(key);
+	console.log(key);
+	console.log(value);
+	var ttime = new Date(JSON.parse(key));
+	var retime = ttime.getFullYear() + "年" + (ttime.getMonth() + 1) + "月" + ttime.getDate() + "日"
+				+ ttime.getHours() + "時" + ttime.getMinutes() + "分" + ttime.getSeconds() + "秒";
 	var str = "<div class='tooltip'><p>" + value + "</p>"
 				+ "<span>" + "進捗どうですか？" + "</span></div>"
 				+ "<p class=" + "open" + ">" + value + "の登録日" + "</p>" + "<div class=" + "slideBox" + ">"
-				+ "この予定は" + key + "に登録されました。" + "</div>";
+				+ "この予定は" + retime + "に登録されました。" + "</div>";
 	html.push(str);
   }
-  console.log(html.join(''));
+  //console.log(html.join(''));
   list.append(html.reverse().join(''));
   	countNum();
 	mouseover();
