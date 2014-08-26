@@ -1,3 +1,4 @@
+/*マウスオーバー時のチップスのスタイル設定*/
 .tooltip {
   margin: 5px 0 0;
   position:relative;
@@ -22,13 +23,11 @@
   display: none;
 }
 
-body {
-	
-  font-size: 14px;
-  font-family: "ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",Meiryo,"メイリオ",Helvetica,Sans-Serif;
-  background-color:#D3D3D3
+.tooltip p{
+	background-color: #e0ffff
 }
 
+/*登録日時表示関連のスタイル設定*/
 .open{
   background: #fa3;
   color: #fff;
@@ -43,11 +42,13 @@ body {
   display: none;
 }
 
+/*見出し設定*/
 h2{
 	text-align: center;
 	background-color:#808099
 }
 
+/*状態表示のスタイル設定*/
 p#showStatus{
 	display:inline;
 	background-color:#ffcc66
@@ -58,6 +59,8 @@ p#showNum{
 	background-color:#ffcc66
 }
 
-.tooltip p{
-	background-color: #e0ffff
+body {
+  font-size: 14px;
+  font-family: "ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",Meiryo,"メイリオ",Helvetica,Sans-Serif;
+  background-color:#D3D3D3
 }

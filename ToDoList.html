@@ -1,25 +1,31 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="UTF-8" />
-	<title>ToDoList-完成間近-</title>
-	<script src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
-	<script src="ToDoList.js"></script>
-	<link rel="stylesheet" href="ToDoList.css">
-</head>
+	<!-- ヘッダー -->
+	<head>
+		<meta charset="UTF-8" />
+		<title>ToDoList-完成間近-</title>
+		<script src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
+		<script src="ToDoList.js"></script>
+		<link rel="stylesheet" href="ToDoList.css">
+	</head>
 
-<body>
-  <div id="form">
-	  <h2>やることリスト</h2>
-    <input id="formText" type="text" size="50" required>
-    <input id="formButton" type="button" value="追加">
-	<input id="clearButton" type="button" value="全削除">
-</div>
-  <div id="state">
-	<body>操作ログ情報 ： </body><p id="showStatus">ToDoリストを開きました。</p>
-	<br>
-	<body>現在情報 ： </body><p id="showNum"> </p>
- </div>
-  <div id="list"></div>
-  </body>
+	<!-- 本体部 -->
+	<body>
+		<h2>やることリスト</h2>
+		<!-- 入力フォーム -->
+		<div id="form">
+			<input id="formText" type="text" size="50" required>
+			<input id="formButton" type="button" value="追加">
+			<input id="clearButton" type="button" value="全削除">
+		</div>
+		<!-- 情報表示 -->
+		<div id="state">
+			<body>操作ログ情報 ： </body><p id="showStatus">ToDoリストを開きました。</p>
+			<br>
+			<body>現在情報 ： </body><p id="showNum"> </p>
+		</div>
+		 <hr>
+		 <!-- ToDoリストの表示 -->
+		 <div id="list"></div>
+	</body>
 </html>
