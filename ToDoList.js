@@ -8,19 +8,32 @@ function loaded() {
 			showText();
 			$("#showStatus").text("全削除しました");
 	});
-	console.log("flag0");
-  $("#formButton").click(
+	$("#formButton").click(
 	// コールバックとしてメソッドを引数にわたす
-	function() {
-	  saveText();
-	  showText();
+		function() {
+			saveText();
+			showText();
 	});
-	console.log("flag1");
-	//countNum();
-
+	
 }
 
 //以下関数群
+//選択して削除
+function seldelt(){
+	$(".selectDel").click(
+		function(){
+			var deldel = $(".selectDel");
+			var idx = deldel.index(this);
+			var final = localStorage.length - idx -1;
+			var key = localStorage.key(final);
+			var value = localStorage.getItem(key);
+			$("#showStatus").text(value + "を削除しました。");
+			localStorage.removeItem(key);
+			showText();
+	});
+}
+
+
 //スライドボタン
 function slideinfo(){
 	$(".open").click(function(){
@@ -38,16 +51,12 @@ function mouseover(){
 
 //予定数の表示
 function countNum(){
-	console.log("flag2");
 	var nagasa= localStorage.length;
-	console.log("flag3");
 	if(nagasa == 0){
 		$("#showNum").text("現在予定はありません");
 	}else{
 		$("#showNum").text("現在" + nagasa + "個の予定があります。");
 	}
-	console.log(nagasa);
-	console.log(localStorage.length);
 }
 
 
@@ -63,15 +72,13 @@ function saveText() {
 	var text = $("#formText");
 	var time = new Date();
 	var time2 = JSON.stringify(time);
-	console.log(time);
-	console.log(time2);
 	//入力チェック追加
 	if(checkText(text.val())) { 
 		var val = escapeText(text.val());
 			localStorage.setItem(time2, val);
 			// テキストボックスを空にする
 			text.val("");
-			$("#showStatus").text("追加しました");
+			$("#showStatus").text(val + "追加しました");
 	}
 }
 
@@ -85,22 +92,24 @@ function showText() {
   for(var i=0, len=localStorage.length; i<len; i++) {
 	key = localStorage.key(i);
 	value = localStorage.getItem(key);
-	console.log(key);
-	console.log(value);
 	var ttime = new Date(JSON.parse(key));
 	var retime = ttime.getFullYear() + "年" + (ttime.getMonth() + 1) + "月" + ttime.getDate() + "日"
 				+ ttime.getHours() + "時" + ttime.getMinutes() + "分" + ttime.getSeconds() + "秒";
 	var str = "<div class='tooltip'><p>" + value + "</p>"
 				+ "<span>" + "進捗どうですか？" + "</span></div>"
-				+ "<p class=" + "open" + ">" + value + "の登録日" + "</p>" + "<div class=" + "slideBox" + ">"
+				+ "<input class=" + "'selectDel'" 
+				+ " type=" + "'button'" + " value=" + "'削除'" + ">"
+				+ "<p class=" + "open" + ">" + value + "の登録日" + "</p>"
+				+ "<div class=" + "slideBox" + ">"
 				+ "この予定は" + retime + "に登録されました。" + "</div>";
 	html.push(str);
   }
-  //console.log(html.join(''));
+
   list.append(html.reverse().join(''));
   	countNum();
 	mouseover();
 	slideinfo();
+	seldelt();
 }
 
 
