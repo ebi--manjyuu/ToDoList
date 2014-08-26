@@ -51,7 +51,8 @@ function showText() {
 	value = localStorage.getItem(key);
 	html.push("<p>" + value + "</p>");
   }
-  list.append(html.join(''));
+  console.log(html.join(''));
+  list.append(html.reverse().join(''));
 }
 
 
