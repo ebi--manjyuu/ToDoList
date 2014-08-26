@@ -21,6 +21,13 @@ function loaded() {
 }
 
 //以下関数群
+//スライドボタン
+function slideinfo(){
+	$(".open").click(function(){
+		$(this).next(".slideBox").slideToggle("slow");
+	});
+}
+
 //マウスオーバー応援関数
 function mouseover(){
 	$(".tooltip p").hover(function() {
@@ -75,13 +82,17 @@ function showText() {
   for(var i=0, len=localStorage.length; i<len; i++) {
 	key = localStorage.key(i);
 	value = localStorage.getItem(key);
-	var str = "<div class='tooltip'><p>" + value + "</p>" + "<span>" + "進捗どうですか？" + "</span></div>";
+	var str = "<div class='tooltip'><p>" + value + "</p>"
+				+ "<span>" + "進捗どうですか？" + "</span></div>"
+				+ "<p class=" + "open" + ">" + value + "の登録日" + "</p>" + "<div class=" + "slideBox" + ">"
+				+ "この予定は" + key + "に登録されました。" + "</div>";
 	html.push(str);
   }
   console.log(html.join(''));
   list.append(html.reverse().join(''));
   	countNum();
 	mouseover();
+	slideinfo();
 }
 
 
