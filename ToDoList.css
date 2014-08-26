@@ -30,14 +30,15 @@ body {
 }
 
 .open{
-  background: #fa2;
+  background: #fa3;
   color: #fff;
   cursor: pointer;
   width: 100%;
   padding: 2px;
 }
 .slideBox{
-  padding: 2px; 
+  padding: 2px;
+  background: #fff;
   border: 1px #ccc solid;
   display: none;
 }
@@ -55,4 +56,8 @@ p#showStatus{
 p#showNum{
 	display:inline;
 	background-color:#ffcc66
+}
+
+.tooltip p{
+	background-color: #e0ffff
 }

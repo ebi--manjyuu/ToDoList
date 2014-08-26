@@ -18,6 +18,17 @@ function loaded() {
 }
 
 //以下関数群
+//完了した予定をチェックする関数
+function tcomp(){
+	//console.log("intcomp");
+	$(".comp").click(
+		function(){
+			var idx = $(".comp").index(this);
+			$(".tooltip p").eq(idx).css("text-decoration","line-through");
+			$(".tooltip p").eq(idx).css("background-color","blue");
+	});
+}
+
 //選択して削除
 function seldelt(){
 	$(".selectDel").click(
@@ -99,6 +110,8 @@ function showText() {
 				+ "<span>" + "進捗どうですか？" + "</span></div>"
 				+ "<input class=" + "'selectDel'" 
 				+ " type=" + "'button'" + " value=" + "'削除'" + ">"
+				+ "<input class=" + "'comp'" 
+				+ " type=" + "'button'" + " value=" + "'完了!!'" + ">"
 				+ "<p class=" + "open" + ">" + value + "の登録日" + "</p>"
 				+ "<div class=" + "slideBox" + ">"
 				+ "この予定は" + retime + "に登録されました。" + "</div>";
@@ -110,6 +123,7 @@ function showText() {
 	mouseover();
 	slideinfo();
 	seldelt();
+	tcomp();
 }
 
 
