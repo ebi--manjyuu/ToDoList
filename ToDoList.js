@@ -8,17 +8,34 @@ function loaded() {
 			showText();
 			$("#showStatus").text("全削除しました");
 	});
-	
+	console.log("flag0");
   $("#formButton").click(
 	// コールバックとしてメソッドを引数にわたす
 	function() {
 	  saveText();
 	  showText();
 	});
+	console.log("flag1");
+	countNum();
 }
 
 //以下関数群
-//全部消す
+//予定数の表示
+function countNum(){
+	console.log("flag2");
+	var nagasa= localStorage.length;
+	console.log("flag3");
+	if(nagasa == 0){
+		$("#showNum").text("現在予定はありません");
+	}else{
+		$("#showNum").text("現在" + nagasa + "個の予定があります。");
+	}
+	console.log(nagasa);
+	console.log(localStorage.length);
+}
+
+
+//入力情報をすべて消去する関数
 function clearText(){
 	localStorage.clear();
 	$("#formText").val("");
@@ -53,6 +70,7 @@ function showText() {
   }
   console.log(html.join(''));
   list.append(html.reverse().join(''));
+  	countNum();
 }
 
 
