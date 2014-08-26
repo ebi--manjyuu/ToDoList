@@ -3,35 +3,37 @@
   position:relative;
 }
 .tooltip p {
-  padding: 14px 10px;
+  padding: 0px 0px;
   display: block;
   text-decoration: none;
   font-weight: bold;
-  width: 180px;
+  width: 100%;
 }
 .tooltip span {
-  background: #ffc;
+  background: #fd0;
   border: 1px solid #fc6;
   height: 20px;
   position: absolute;
-  top: -55px;
+  top: -45px;
   left: 0;
   text-align: center;
   padding: 20px 12px 10px;
-  z-index: 2;
+  //z-index: 2;
   display: none;
 }
 
 body {
+	
   font-size: 14px;
   font-family: "ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",Meiryo,"メイリオ",Helvetica,Sans-Serif;
+  background-color:#D3D3D3
 }
 
 .open{
   background: #fa2;
   color: #fff;
   cursor: pointer;
-  width: 100px;
+  width: 100%;
   padding: 2px;
 }
 .slideBox{
@@ -40,3 +42,17 @@ body {
   display: none;
 }
 
+h2{
+	text-align: center;
+	background-color:#808099
+}
+
+p#showStatus{
+	display:inline;
+	background-color:#ffcc66
+}
+
+p#showNum{
+	display:inline;
+	background-color:#ffcc66
+}

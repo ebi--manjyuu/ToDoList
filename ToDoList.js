@@ -51,11 +51,11 @@ function mouseover(){
 
 //予定数の表示
 function countNum(){
-	var nagasa= localStorage.length;
-	if(nagasa == 0){
-		$("#showNum").text("現在予定はありません");
+	var tdnum = localStorage.length;
+	if(tdnum == 0){
+		$("#showNum").text("予定はありません");
 	}else{
-		$("#showNum").text("現在" + nagasa + "個の予定があります。");
+		$("#showNum").text(tdnum + "個の予定があります。");
 	}
 }
 
