@@ -1,15 +1,28 @@
 $(loaded);
-
 function loaded() {
   showText();
   // ボタンをクリックしたときに実行するイベントを設定する
  //$("#hoge").text(ごめんなさい);
+	$("#clearButton").click(
+		function(){
+			clearText();
+			showText();
+			$("#showStatus").text("全削除しました");
+	});
+
   $("#formButton").click(
     // コールバックとしてメソッドを引数にわたす
     function() {
       saveText();
       showText();
+	  $("#showStatus").text("追加しました");
     });
+}
+
+//以下関数群
+//全部消す
+function clearText(){
+	localStorage.clear();
 }
 
 // 入力された内容をローカルストレージに保存する
