@@ -16,10 +16,19 @@ function loaded() {
 	  showText();
 	});
 	console.log("flag1");
-	countNum();
+	//countNum();
+
 }
 
 //以下関数群
+//マウスオーバー応援関数
+function mouseover(){
+	$(".tooltip p").hover(function() {
+    $(this).next("span").animate({opacity: "show", top: "-45"}, "slow");}, function() {
+      $(this).next("span").animate({opacity: "hide", top: "-55"}, "fast");
+    });
+}
+
 //予定数の表示
 function countNum(){
 	console.log("flag2");
@@ -66,11 +75,13 @@ function showText() {
   for(var i=0, len=localStorage.length; i<len; i++) {
 	key = localStorage.key(i);
 	value = localStorage.getItem(key);
-	html.push("<p>" + value + "</p>");
+	var str = "<div class='tooltip'><p>" + value + "</p>" + "<span>" + "進捗どうですか？" + "</span></div>";
+	html.push(str);
   }
   console.log(html.join(''));
   list.append(html.reverse().join(''));
   	countNum();
+	mouseover();
 }
 
 

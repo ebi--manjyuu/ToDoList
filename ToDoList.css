@@ -1,0 +1,29 @@
+.tooltip {
+  margin: 5px 0 0;
+  position:relative;
+}
+.tooltip p {
+  padding: 14px 10px;
+  display: block;
+  text-decoration: none;
+  font-weight: bold;
+  width: 180px;
+}
+.tooltip span {
+  background: #ffc;
+  border: 1px solid #fc6;
+  height: 20px;
+  position: absolute;
+  top: -55px;
+  left: 0;
+  text-align: center;
+  padding: 20px 12px 10px;
+  z-index: 2;
+  display: none;
+}
+
+body {
+  font-size: 14px;
+  font-family: "ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",Meiryo,"メイリオ",Helvetica,Sans-Serif;
+}
+
