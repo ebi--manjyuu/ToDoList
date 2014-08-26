@@ -14,7 +14,6 @@ function loaded() {
 	function() {
 	  saveText();
 	  showText();
-	  $("#showStatus").text("追加しました");
 	});
 }
 
@@ -22,6 +21,7 @@ function loaded() {
 //全部消す
 function clearText(){
 	localStorage.clear();
+	$("#formText").val("");
 }
 
 // 入力された内容をローカルストレージに保存する
@@ -32,11 +32,10 @@ function saveText() {
 	//入力チェック追加
 	if(checkText(text.val())) { 
 		var val = escapeText(text.val());
-		if(checkText(val)) {
-			localStorage.setItem(time, escapeText(val));
+			localStorage.setItem(time, val);
 			// テキストボックスを空にする
 			text.val("");
-		}
+			$("#showStatus").text("追加しました");
 	}
 }
 
@@ -66,6 +65,7 @@ function checkText(text) {
   // 文字数が0または20以上は不可
   if (0 === text.length || 20 < text.length) {
 	alert("文字数は1〜20字にしてください");
+	$("#showStatus").text("入力しなおしてください。");
 	return false;
   }
   // すでに入力された値があれば不可
@@ -75,6 +75,7 @@ function checkText(text) {
 	var value = localStorage.getItem(key);
 	// 内容が一致するものがあるか比較
 	if (text === value) {
+		$("#showStatus").text("再入力をお願いします。");
 	  alert("同じ内容は避けてください");
 	  return false;
 	}
